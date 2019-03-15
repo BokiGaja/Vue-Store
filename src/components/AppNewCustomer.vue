@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <form action="" @submit.prevent="addCustomer">
+        <form @submit.prevent="addCustomer">
             <h4>Add a new customer</h4>
             <input type="text" v-model="customer.firstName" placeholder="First name" required>
             <br>
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
     export default {
         data() {
             return {
@@ -27,7 +26,7 @@
         methods: {
             clearCustomer() {
                 this.customer.firstName = '';
-                this.customer.lastName = ''
+                this.customer.lastName = '';
             },
 
             addCustomer() {

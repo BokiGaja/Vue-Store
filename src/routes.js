@@ -11,7 +11,6 @@ const routes = [
     { path: '/products', name: 'products', component: AppProducts}
 ];
 
-
 export const  router = new VueRouter({
     mode: 'history',
     routes

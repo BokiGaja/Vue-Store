@@ -3,7 +3,7 @@ let customers = [
         {firstName: 'Rob', lastName: 'Stark', products: []},
         {firstName: 'Daenerys', lastName: 'Targaryen', products: []},
         {firstName: 'Tyrion', lastName: 'Lannister', products: []}
-        ];
+];
 
 export const addCustomer = customer => {
     customers.push(customer)
@@ -23,6 +23,7 @@ export const addProduct = (customerFirstName, product) => {
                     inArray = true;
                 }
             });
+
             if (!inArray) {
                 customer.products.push({...product})
             }

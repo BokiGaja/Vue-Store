@@ -12,16 +12,16 @@
         </div>
         <table class="table">
             <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
             </thead>
             <tbody>
-            <tr v-for="(product, index) in productList">
-                <th scope="row">{{ productList.indexOf(product)+1 }}</th>
+            <tr v-for="(product, index) in productList" :key="index">
+                <th scope="row">{{ (index+1) }}</th>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.quantity }}</td>
@@ -37,8 +37,7 @@
 </template>
 
 <script>
-    import products, { addQuantity, removeQuantity } from '../services/ProductService'
-
+    import products, { addQuantity, removeQuantity } from '../services/ProductService';
     export default {
         data() {
             return {
@@ -46,7 +45,7 @@
                 searchName: ''
             }
         },
-        
+
         methods: {
             search() {
                 let searchFails = 0;
@@ -57,10 +56,12 @@
                         searchFails++;
                     }
                 });
+
                 if (this.searchName === '') {
                     this.productList = [...products];
                     return;
                 }
+
                 if (searchFails === this.productList.length) {
                     alert(`We don't have ${this.searchName}`);
                     this.searchName = '';
