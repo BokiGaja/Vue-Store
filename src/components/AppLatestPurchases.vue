@@ -1,26 +1,34 @@
 <template>
     <div class="container">
         <h1>Latest purchases of {{ customer.firstName }} {{ customer.lastName }}</h1>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(product, index) in customer.products">
+                <th scope="row">{{ customer.products.indexOf(product)+1 }}</th>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+            </tr>
+            </tbody>
+        </table>
         <button class="btn btn-success">
-            <router-link :to="{name: 'customers'}">Go back</router-link>
+            <router-link :to="{name: 'customers'}" style="color: white">Go back</router-link>
         </button>
     </div>
 </template>
 
 <script>
     import { findCustomer} from "../services/CustomerService";
-
     export default {
-        data() {
-            return {
-                customer: {
-                    firstName: '',
-                    lastName: ''
-                }
-            }
-        },
         created() {
             this.customer = findCustomer(this.$route.params.id);
+            console.log(this.customer);
         }
     }
 </script>

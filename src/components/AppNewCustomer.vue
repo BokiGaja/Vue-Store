@@ -18,10 +18,12 @@
             return {
                 customer: {
                     firstName: '',
-                    lastName: ''
+                    lastName: '',
+                    products: []
                 }
             }
         },
+
         methods: {
             clearCustomer() {
                 this.customer.firstName = '';

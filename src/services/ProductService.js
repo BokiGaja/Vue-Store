@@ -21,4 +21,8 @@ export const removeQuantity = product => {
     })
 };
 
+export const findProduct = id => {
+    return products[id-1];
+};
+
 export default products;

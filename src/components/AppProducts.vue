@@ -27,6 +27,9 @@
                 <td>{{ product.quantity }}</td>
                 <button class="btn btn-success" @click="addToLager(product)">+</button>
                 <button class="btn btn-danger" @click="removeFromLager(product)">-</button>
+                <button class="btn btn-warning">
+                    <router-link :to="{name: 'product', params: {id: index+1}}">Buy</router-link>
+                </button>
             </tr>
             </tbody>
         </table>
@@ -43,6 +46,7 @@
                 searchName: ''
             }
         },
+        
         methods: {
             search() {
                 let searchFails = 0;

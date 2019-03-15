@@ -11,13 +11,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(customer, index) in customersList">
+            <tr v-for="(customer, index) in customersList" :key="index">
                 <th scope="row">{{ customersList.indexOf(customer)+1 }}</th>
                 <td>{{ customer.firstName }}</td>
                 <td>{{ customer.lastName }}</td>
                 <button class="btn btn-danger" @click="removeCustomer(index)">Remove</button>
                 <button class="btn btn-info">
-                    <router-link :to="{name: 'latestPurchases', params: {id: index+1, customer: customer}}" >To customer</router-link>
+                    <router-link :to="{name: 'latestPurchases', params: {id: index+1}}" style="color: white"f>To customer</router-link>
                 </button>
             </tr>
             </tbody>
@@ -38,6 +38,7 @@
                 customersList: [...customers]
             }
         },
+
         methods: {
             removeCustomer(index) {
                 this.customersList.splice(index,1);
