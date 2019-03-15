@@ -29,7 +29,6 @@
             },
 
             addCustomer() {
-                console.log(this.customer);
                 this.$emit('customerAdded', {...this.customer});
                 this.clearCustomer();
             }

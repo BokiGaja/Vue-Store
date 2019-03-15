@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1>Customers</h1>
-        <app-new-customer @customerAdded="addCustomer"></app-new-customer>
+        <app-new-customer @customerAdded="addNewCustomer"></app-new-customer>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -16,6 +16,7 @@
                 <td>{{ customer.firstName }}</td>
                 <td>{{ customer.lastName }}</td>
                 <button class="btn btn-danger" @click="removeCustomer(index)">Remove</button>
+                <router-link :to="{name: 'latestPurchases', params: {id: index+1, customer: customer}}" >To customer</router-link>
             </tr>
             </tbody>
         </table>
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-    import customers from '../services/CustomerService';
+    import customers, { addCustomer } from '../services/CustomerService';
     import NewCustomer from './AppNewCustomer';
     export default {
         components: {
@@ -40,8 +41,9 @@
                 this.customersList.splice(index,1);
             },
 
-            addCustomer(customer) {
-                this.customersList.push(customer)
+            addNewCustomer(customer) {
+                addCustomer(customer);
+                this.customersList = [...customers];
             }
         }
     }

@@ -1,10 +1,10 @@
+import VueRouter from 'vue-router'
 import AppCustomers from './components/AppCustomers';
 import AppProducts from './components/AppProducts';
-import VueRouter from 'vue-router'
-
-
+import AppLatestPurchases from './components/AppLatestPurchases'
 
 const routes = [
+    { path: '/customers/:id', name: 'latestPurchases', props: true,  component: AppLatestPurchases},
     { path: '/customers', name: 'customers', component: AppCustomers},
     { path: '/products', name: 'products', component: AppProducts}
 ];
