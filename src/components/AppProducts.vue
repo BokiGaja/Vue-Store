@@ -1,6 +1,15 @@
 <template>
     <div class="container">
         <h1>Products</h1>
+        <div class="active-cyan-3 active-cyan-4 mb-4">
+            <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Search"
+                    aria-label="Search"
+                    v-model="searchName"
+                    @keyup.enter="search">
+        </div>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -28,7 +37,28 @@
     export default {
         data() {
             return {
-                productList: [...products]
+                productList: [...products],
+                searchName: ''
+            }
+        },
+        methods: {
+            search() {
+                let searchFails = 0;
+                this.productList.forEach(product => {
+                    if (product.name === this.searchName) {
+                        this.productList = this.productList.filter(productCurr => productCurr === product);
+                    } else {
+                        searchFails++;
+                    }
+                });
+                if (this.searchName === '') {
+                    this.productList = [...products];
+                    return;
+                }
+                if (searchFails === this.productList.length) {
+                    alert(`We don't have ${this.searchName}`);
+                    this.searchName = '';
+                }
             }
         }
     }
