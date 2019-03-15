@@ -25,6 +25,8 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.quantity }}</td>
+                <button class="btn btn-success" @click="addToLager(product)">+</button>
+                <button class="btn btn-danger" @click="removeFromLager(product)">-</button>
             </tr>
             </tbody>
         </table>
@@ -32,7 +34,7 @@
 </template>
 
 <script>
-    import products from '../services/ProductService'
+    import products, { addQuantity, removeQuantity } from '../services/ProductService'
 
     export default {
         data() {
@@ -59,6 +61,14 @@
                     alert(`We don't have ${this.searchName}`);
                     this.searchName = '';
                 }
+            },
+
+            addToLager(product) {
+                addQuantity(product)
+            },
+
+            removeFromLager(product) {
+                removeQuantity(product)
             }
         }
     }

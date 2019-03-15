@@ -5,4 +5,20 @@ let products = [
     {name: 'Train', price: 20000, quantity: 2}
 ];
 
+export const addQuantity = product => {
+    products.forEach(productToAdd => {
+        if (productToAdd === product) {
+            productToAdd.quantity++
+        }
+    })
+};
+
+export const removeQuantity = product => {
+    products.forEach(productToAdd => {
+        if (productToAdd === product && productToAdd.quantity > 0) {
+            productToAdd.quantity--
+        }
+    })
+};
+
 export default products;
