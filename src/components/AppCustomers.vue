@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <h1>Customers</h1>
+        <app-new-customer @customerAdded="addCustomer"></app-new-customer>
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -11,7 +12,7 @@
             </thead>
             <tbody>
             <tr v-for="(customer, index) in customersList">
-                <th scope="row">{{ ++index }}</th>
+                <th scope="row">{{ customersList.indexOf(customer)+1 }}</th>
                 <td>{{ customer.firstName }}</td>
                 <td>{{ customer.lastName }}</td>
                 <button class="btn btn-danger" @click="removeCustomer(index)">Remove</button>
@@ -23,7 +24,12 @@
 
 <script>
     import customers from '../services/CustomerService';
+    import NewCustomer from './AppNewCustomer';
     export default {
+        components: {
+            appNewCustomer: NewCustomer
+        },
+
         data() {
             return {
                 customersList: [...customers]
@@ -33,6 +39,10 @@
             removeCustomer(index) {
                 this.customersList.splice(index,1);
             },
+
+            addCustomer(customer) {
+                this.customersList.push(customer)
+            }
         }
     }
 </script>

@@ -5,4 +5,5 @@ const customers = [
     {firstName: 'Tirion', lastName: 'Lanister'}
 ];
 
+
 export default customers;
