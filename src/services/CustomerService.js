@@ -5,9 +5,13 @@ let customers = [
         {firstName: 'Tirion', lastName: 'Lanister'}
         ];
 
-export const addCustomer = (customer) => {
+export const addCustomer = customer => {
     customers.push(customer)
-}
+};
+
+export const findCustomer = id => {
+    return customers[id-1];
+};
 
 export default customers;
 

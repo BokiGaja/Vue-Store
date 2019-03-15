@@ -1,11 +1,15 @@
 <template>
     <div class="container">
         <h1>Latest purchases of {{ customer.firstName }} {{ customer.lastName }}</h1>
-
+        <button class="btn btn-success">
+            <router-link :to="{name: 'customers'}">Go back</router-link>
+        </button>
     </div>
 </template>
 
 <script>
+    import { findCustomer} from "../services/CustomerService";
+
     export default {
         data() {
             return {
@@ -16,8 +20,7 @@
             }
         },
         created() {
-            this.customer.firstName = this.$route.params.customer.firstName;
-            this.customer.lastName = this.$route.params.customer.lastName;
+            this.customer = findCustomer(this.$route.params.id);
         }
     }
 </script>

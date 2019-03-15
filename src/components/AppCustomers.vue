@@ -16,7 +16,9 @@
                 <td>{{ customer.firstName }}</td>
                 <td>{{ customer.lastName }}</td>
                 <button class="btn btn-danger" @click="removeCustomer(index)">Remove</button>
-                <router-link :to="{name: 'latestPurchases', params: {id: index+1, customer: customer}}" >To customer</router-link>
+                <button class="btn btn-info">
+                    <router-link :to="{name: 'latestPurchases', params: {id: index+1, customer: customer}}" >To customer</router-link>
+                </button>
             </tr>
             </tbody>
         </table>
