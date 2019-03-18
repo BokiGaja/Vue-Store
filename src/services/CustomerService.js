@@ -1,8 +1,8 @@
 let customers = [
-        {firstName: 'John', lastName: 'Snow', products: []},
-        {firstName: 'Rob', lastName: 'Stark', products: []},
-        {firstName: 'Daenerys', lastName: 'Targaryen', products: []},
-        {firstName: 'Tyrion', lastName: 'Lannister', products: []}
+        {id: 1, firstName: 'John', lastName: 'Snow', email: 'john@test.com', products: []},
+        {id: 2, firstName: 'Rob', lastName: 'Stark', email: 'rob@test.com', products: []},
+        {id: 3, firstName: 'Daenerys', lastName: 'Targaryen', email: 'daenerys@test.com', products: []},
+        {id: 4, firstName: 'Tyrion', lastName: 'Lannister', email: 'tyrion@test.com', products: []}
 ];
 
 export const addCustomer = customer => {

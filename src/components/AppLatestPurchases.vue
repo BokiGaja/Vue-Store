@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Latest purchases of {{ customer.firstName }} {{ customer.lastName }}</h1>
+        <h1>Latest purchases of {{ customer.firstName }} {{ customer.lastName }} {{ customer.email }}</h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
