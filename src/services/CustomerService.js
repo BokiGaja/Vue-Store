@@ -10,7 +10,7 @@ export const addCustomer = customer => {
 };
 
 export const findCustomer = id => {
-    return customers[id-1];
+    return customers.find(customer => customer.id === id)
 };
 
 export const addProduct = (customerFirstName, product) => {
