@@ -1,8 +1,8 @@
 let products = [
-    {name: 'Gun', price: 150, quantity: 20},
-    {name: 'Car', price: 15000, quantity: 6},
-    {name: 'Bike', price: 10, quantity: 200},
-    {name: 'Train', price: 20000, quantity: 2}
+    {id: 1, name: 'Gun', price: 150, quantity: 20},
+    {id: 2, name: 'Car', price: 15000, quantity: 6},
+    {id: 3, name: 'Bike', price: 10, quantity: 200},
+    {id: 4, name: 'Train', price: 20000, quantity: 2}
 ];
 
 export const addQuantity = product => {
@@ -22,7 +22,13 @@ export const removeQuantity = product => {
 };
 
 export const findProduct = id => {
-    return products[id-1];
+    let productFound = null;
+    products.forEach(product => {
+        if (product.id === id) {
+            productFound = product
+        }
+    });
+    return productFound;
 };
 
 export default products;

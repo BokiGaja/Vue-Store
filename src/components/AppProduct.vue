@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <h1>{{ product.name }}</h1>
+        <h2>ID: {{ product.id }}</h2>
         <h2>Price: {{ product.price }}$</h2>
         <h2>On lager: {{ product.quantity }}</h2>
         <select class="form-control"  style="width: 300px; margin: 10px auto;" v-model="buyer">
@@ -20,6 +21,7 @@
         data() {
             return {
                 product: {
+                    id: null,
                     name: '',
                     price: '',
                     quantity: 0,
@@ -31,7 +33,9 @@
         },
 
         created() {
-            this.product = findProduct(this.$route.params.id)
+            console.log(this.$route.params.id);
+            this.product = findProduct(this.$route.params.id);
+            console.log(this.product);
         },
 
         methods: {

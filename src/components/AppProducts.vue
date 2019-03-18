@@ -13,7 +13,7 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
@@ -21,14 +21,14 @@
             </thead>
             <tbody>
             <tr v-for="(product, index) in productList" :key="index">
-                <th scope="row">{{ (index+1) }}</th>
+                <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.quantity }}</td>
                 <button class="btn btn-success" @click="addToLager(product)">+</button>
                 <button class="btn btn-danger" @click="removeFromLager(product)">-</button>
                 <button class="btn btn-warning">
-                    <router-link :to="{name: 'product', params: {id: index+1}}">Buy</router-link>
+                    <router-link :to="{name: 'product', params: {id: product.id}}">Buy</router-link>
                 </button>
             </tr>
             </tbody>
